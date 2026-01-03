@@ -176,3 +176,32 @@ For detailed templates and methods:
 - `references/ecosystem-mapping.md` – Ecosystem visualization methods
 - `references/research-methods.md` – User research techniques for services
 - `references/touchpoint-matrix.md` – Touchpoint inventory template
+
+## Sources & Attribution
+
+### Primary Source
+
+- **Interaction Design Foundation (IxDF)** – "What is Service Design?"
+  https://www.interaction-design.org/literature/topics/service-design
+  - Core definition and scope (SKILL.md)
+  - "Two coffee shops" quote, attributed to 31Volts Service Design Studio (SKILL.md)
+  - Five principles framework (SKILL.md)
+  - Service components: Actors, Location, Props, Associates, Processes (SKILL.md)
+  - Frontstage/backstage distinction and line of visibility (SKILL.md, service-blueprints.md)
+  - UX vs CX vs Service Design scope comparison (SKILL.md)
+
+### Foundational Works (via IxDF)
+
+- **Stickdorn, M. & Schneider, J.** – *This is Service Design Thinking* (2011)
+  - Five principles: user-centered, co-creative, sequencing, evidencing, holistic (SKILL.md)
+
+- **Shostack, G. Lynn** – "How to Design a Service" (1982), European Journal of Marketing
+  - Service blueprint concept and structure (service-blueprints.md)
+
+- **Shostack, G. Lynn** – "Designing Services That Deliver" (1984), Harvard Business Review
+  - Blueprint layers and lines of visibility/interaction (service-blueprints.md)
+
+### Further Reading
+
+- Service Design Network: https://www.service-design-network.org/
+- Nielsen Norman Group service design articles: https://www.nngroup.com/topic/service-design/
