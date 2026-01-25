@@ -5,7 +5,7 @@ description: Use when building dbt models, adding tests, or designing data model
 
 # dbt
 
-Comprehensive patterns for dbt data transformation projects.
+Patterns for dbt data transformation projects.
 
 ## Skill Modules
 

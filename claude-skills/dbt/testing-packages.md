@@ -293,7 +293,7 @@ For testing macro logic directly without building models, use `dbt run-operation
 dbt run-operation test_to_literal --target postgres
 ```
 
-### Comprehensive Macro Testing
+### Macro Testing
 
 ```sql
 -- integration_tests/macros/test_date_helpers.sql

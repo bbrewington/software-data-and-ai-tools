@@ -2,7 +2,7 @@
 
 ## Overview
 
-A touchpoint matrix catalogs all points of interaction between customers and the service across channels and journey stages. It provides a comprehensive inventory for auditing, prioritizing, and improving touchpoints.
+A touchpoint matrix catalogs all points of interaction between customers and the service across channels and journey stages. It provides an inventory for auditing, prioritizing, and improving touchpoints.
 
 ## Touchpoint Definition
 

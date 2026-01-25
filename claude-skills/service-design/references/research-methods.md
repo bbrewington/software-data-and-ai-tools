@@ -220,7 +220,7 @@ Connect customer research to operational insights.
 
 ### Research Participant Mix
 
-For comprehensive service understanding, include:
+For service understanding, include:
 - Multiple customer segments
 - Heavy and light users
 - New and long-term customers

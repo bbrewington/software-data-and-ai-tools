@@ -1,6 +1,6 @@
 ---
 name: service-design
-description: Comprehensive service design methodology for creating sustainable solutions and optimal experiences for both customers and service providers. Use when designing end-to-end service experiences, creating customer journey maps, building service blueprints, mapping service ecosystems, identifying touchpoints and pain points, designing frontstage/backstage interactions, or improving existing service delivery. Applicable to digital services, physical services, and hybrid product-service systems.
+description: Service design methodology for creating sustainable solutions and optimal experiences for both customers and service providers. Use when designing end-to-end service experiences, creating customer journey maps, building service blueprints, mapping service ecosystems, identifying touchpoints and pain points, designing frontstage/backstage interactions, or improving existing service delivery. Applicable to digital services, physical services, and hybrid product-service systems.
 ---
 
 # Service Design
