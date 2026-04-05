@@ -13,13 +13,9 @@ This skill is organized into the following modules. Read the relevant module(s) 
 
 | Module | File | Use When |
 |--------|------|----------|
-| **Data Modeling** | `data-modeling.md` | Designing dimensional models, defining grain, facts vs dimensions, SCDs |
-| **Model Layers** | `model-layers.md` | Organizing staging/intermediate/marts, naming conventions, project structure |
-| **Testing Overview** | `testing.md` | Understanding test types, contracts vs tests, test strategy, running tests |
-| **Generic Tests** | `testing-generic.md` | Built-in tests, dbt-utils, dbt-expectations, custom generic tests |
-| **Unit Tests** | `testing-unit.md` | Testing transformation logic with mocked data (dbt 1.8+) |
-| **Singular Tests** | `testing-singular.md` | Complex business rules, cross-model validation |
-| **Package Testing** | `testing-packages.md` | Integration tests for dbt package development |
+| **Data Modeling** | `references/data-modeling.md` | Designing dimensional models, defining grain, facts vs dimensions, SCDs |
+| **Model Layers** | `references/model-layers.md` | Organizing staging/intermediate/marts, naming conventions, project structure |
+| **Package Testing** | `references/testing-packages.md` | Integration tests for dbt package development |
 
 ## Quick Reference
 
@@ -81,23 +77,23 @@ dbt source freshness             # Check source freshness
 
 ## Best Practices Summary
 
-### Do
+### Things to do
 
-- Define grain for every model (what does one row represent?)
-- Use staging for renaming/casting only—no business logic
-- Test primary keys on every model (unique + not_null)
-- Use contracts for marts (enforce schema at build time)
-- Add tests when you find bugs (regression prevention)
-- Document models and columns in YAML
-- Use incremental models for large tables
-- Tag critical tests and run them more frequently
+- DO Define grain for every model (what does one row represent?)
+- DO Use staging for renaming/casting only—no business logic
+- DO Test primary keys on every model (unique + not_null)
+- DO Use contracts for marts (enforce schema at build time)
+- DO Add tests when you find bugs (regression prevention)
+- DO Document models and columns in YAML
+- DO Use incremental models for large tables
+- DO Tag critical tests and run them more frequently
 
 ### Don't
 
-- Skip the staging layer
-- Put business logic in staging models
-- Hardcode values (use `{{ var() }}` or `{{ env_var() }}`)
-- Test every column (diminishing returns)
-- Ignore test warnings indefinitely
-- Forget source freshness checks
-- Create circular dependencies between models
+- DON'T Skip the staging layer
+- DON'T Put business logic in staging models
+- DON'T Hardcode values (use `{{ var() }}` or `{{ env_var() }}`)
+- DON'T Test every column (diminishing returns)
+- DON'T Ignore test warnings indefinitely
+- DON'T Forget source freshness checks
+- DON'T Create circular dependencies between models
