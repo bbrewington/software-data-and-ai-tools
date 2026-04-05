@@ -1,0 +1,58 @@
+# Fly.io Configuration Template for Python Web Application
+# Copy this file to your project root as fly.toml and customize
+
+app = "my-app-name"                 # REQUIRED: Change to your unique app name
+primary_region = "atl"              # Change to your preferred region (atl, ord, sjc, etc.)
+
+# Lifecycle configuration
+kill_signal = "SIGTERM"             # Graceful shutdown signal
+kill_timeout = "30s"                # Time before forced shutdown
+
+# Build configuration
+[build]
+  dockerfile = "Dockerfile"         # Path to Dockerfile (relative to project root)
+  # ignorefile = ".dockerignore"    # Uncomment if using custom .dockerignore
+
+# Environment variables (non-sensitive only!)
+# Use `fly secrets set KEY=value` for sensitive data
+[env]
+  PORT = "8080"
+  ENVIRONMENT = "production"
+  # Add your non-sensitive env vars here
+
+# HTTP service configuration
+[http_service]
+  internal_port = 8080              # Port your app listens on
+  force_https = true                # Redirect HTTP to HTTPS
+  auto_stop_machines = true         # Stop machines when idle (cost savings)
+  auto_start_machines = true        # Start machines on incoming requests
+  min_machines_running = 0          # Minimum running machines (0 for cost optimization)
+  
+  # Concurrency limits (optional)
+  # [http_service.concurrency]
+  #   type = "requests"              # or "connections"
+  #   soft_limit = 80
+  #   hard_limit = 100
+
+# Health checks (recommended)
+[[http_service.checks]]
+  grace_period = "10s"              # Wait before first check
+  interval = "30s"                  # Time between checks
+  method = "GET"
+  timeout = "5s"
+  path = "/health"                  # Implement this endpoint in your app!
+
+# VM configuration (choose based on your needs)
+[[vm]]
+  size = "shared-cpu-1x"            # Options: shared-cpu-1x, shared-cpu-2x, performance-1x, etc.
+  memory = "256mb"                  # Options: 256mb, 512mb, 1024mb, 2048mb, etc.
+
+# Deploy configuration (optional)
+# [deploy]
+#   release_command = "python manage.py migrate"  # Run before starting new machines
+#   strategy = "rolling"            # Options: rolling, immediate, canary, bluegreen
+
+# Volumes for persistent storage (optional)
+# [[mounts]]
+#   source = "data_volume"          # Create with: fly volumes create data_volume
+#   destination = "/data"

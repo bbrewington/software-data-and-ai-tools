@@ -1,0 +1,95 @@
+name: Deploy to Fly.io
+
+# Trigger on push to main branch
+on:
+  push:
+    branches:
+      - main
+  # Optional: Allow manual workflow dispatch
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy app
+    runs-on: ubuntu-latest
+    
+    # Optional: Use environments for multiple deploy targets
+    # environment: production
+    
+    steps:
+      # Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # Optional: Run tests before deployment
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.11'
+      #     cache: 'pip'
+      
+      # - name: Install dependencies
+      #   run: |
+      #     pip install -r requirements.txt
+      
+      # - name: Run tests
+      #   run: |
+      #     pytest tests/
+      
+      # Set up flyctl
+      - name: Set up flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+      
+      # Deploy to Fly.io
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      
+      # Optional: Verify deployment
+      # - name: Verify deployment
+      #   run: |
+      #     curl -f https://my-app.fly.dev/health || exit 1
+
+---
+
+# SETUP INSTRUCTIONS:
+# 
+# 1. Generate a Fly.io deploy token:
+#    fly tokens create deploy
+# 
+# 2. Add the token to GitHub repository secrets:
+#    - Go to: Settings > Secrets and variables > Actions
+#    - Add new secret: Name = FLY_API_TOKEN, Value = <your-token>
+# 
+# 3. Commit this file to .github/workflows/fly-deploy.yml
+# 
+# 4. Push to main branch to trigger deployment
+#
+# ADVANCED OPTIONS:
+# 
+# Deploy to staging on pull requests:
+#   on:
+#     pull_request:
+#       branches:
+#         - main
+#   
+#   jobs:
+#     deploy-staging:
+#       steps:
+#         - run: flyctl deploy --config fly.staging.toml
+#           env:
+#             FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+#
+# Multi-environment deployment:
+#   jobs:
+#     deploy-staging:
+#       environment: staging
+#       steps:
+#         - run: flyctl deploy --app myapp-staging
+#     
+#     deploy-production:
+#       environment: production
+#       needs: deploy-staging
+#       steps:
+#         - run: flyctl deploy --app myapp-prod
