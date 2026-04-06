@@ -1,0 +1,11 @@
+{
+  "name": "bbrewington-tools",
+  "description": "Agent skills for dbt, Fly.io, service design, and strategy frameworks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "bbrewington",
+    "url": "https://github.com/bbrewington"
+  },
+  "repository": "https://github.com/bbrewington/software-data-and-ai-tools",
+  "license": "MIT"
+}
